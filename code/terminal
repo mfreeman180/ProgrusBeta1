@@ -1,0 +1,70 @@
+mkdir social-media-app
+cd social-media-app
+npm init -y
+mkdir backend/src/controllers
+mkdir backend/src/middleware
+mkdir backend/src/routes
+mkdir backend/src/utils
+cd backend
+npm init -y
+npm install
+
+# Create frontend
+cd ..
+npx create-next-app@latest frontend --typescript --tailwind --eslint
+cd frontend
+npm install
+mkdir src/styles
+mkdir src/pages
+mkdir src/app
+mkdir public/fonts
+mkdir public/images
+
+# Install dependencies
+cd ..
+npm install 
+
+# Connect to PostgreSQL (run in separate terminal)
+psql -U postgres
+
+# Create a new user (replace desired_username and desired_password)
+CREATE USER MFreeman18 WITH PASSWORD 'Privett18!';
+
+# Grant privileges
+ALTER USER MFreeman18 CREATEDB;
+
+# Create database
+CREATE DATABASE social_media_db;
+
+# Grant privileges on database
+GRANT ALL PRIVILEGES ON DATABASE social_media_db TO MFreeman18;
+
+cd backend
+npx prisma migrate dev --name init 
+
+# Start backend server (in backend directory)
+cd backend
+npm run dev
+
+# Start frontend server (in new terminal)
+cd frontend
+npm run dev 
+
+# Register user (in PowerShell)
+Invoke-RestMethod `
+    -Method Post `
+    -Uri "http://localhost:5000/api/auth/register" `
+    -ContentType "application/json" `
+    -Body '{"email": "progrus@example.com", "password": "PrivProgrus18", "username": "Progrus18", "name": "Progrus Test"}'
+
+# View users
+Invoke-RestMethod -Method Get -Uri "http://localhost:5000/api/users"
+
+# Login
+Invoke-RestMethod `
+    -Method Post `
+    -Uri "http://localhost:5000/api/auth/login" `
+    -ContentType "application/json" `
+    -Body '{"email": "progrus@example.com", "password": "PrivProgrus18"}'
+
+
