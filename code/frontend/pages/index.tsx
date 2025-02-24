@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Nav from '../components/Nav';
 
-// Add keyframes for blinking animation
 const blinkingStyle = `
   @keyframes blink {
     0% { opacity: 1; }
@@ -45,6 +45,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
+      <Nav />
       <div className="absolute inset-0">
         <Image
           src="/images/capitol.png"
@@ -54,26 +55,17 @@ export default function Home() {
           priority
         />
       </div>
-      
-      {/* Overlay */}
       <div className="absolute inset-0 bg-white/90" />
-
-      {/* Content */}
       <div className="relative z-10 min-h-screen">
-        {/* Top bar */}
-        <div className="fixed top-0 left-0 w-full h-10 bg-[#991B1B] flex justify-end items-center px-5">
+        <div className="fixed top-16 left-0 w-full h-10 bg-[#991B1B] flex justify-end items-center px-5">
           <button className="text-white border border-white px-3 py-1 rounded hover:bg-white/10">
             Learn More
           </button>
         </div>
-
-        {/* Main content */}
         <div className="flex flex-col items-center pt-[25vh] px-4">
           <h1 className="text-4xl md:text-6xl font-black text-[#991B1B] tracking-widest mb-8 transform scale-y-150 scale-x-80">
             WELCOME TO PROGRUS
           </h1>
-
-          {/* Login Box */}
           <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-md mb-4">
             <input
               type="text"
@@ -104,18 +96,14 @@ export default function Home() {
               Sign Up
             </button>
           </div>
-
-          {/* Info Box */}
           <div className="w-full max-w-sm p-4 border-2 border-[#991B1B] rounded-lg text-[#cc0000] text-base font-bold text-center leading-relaxed">
             The Sign Up button will redirect you to a new webpage. For more information about your data privacy and our site, please click the "Learn More" button at the top of the page.
           </div>
         </div>
-
-        {/* Bottom bar */}
         <div className="fixed bottom-0 left-0 w-full h-10 bg-[#991B1B] flex justify-center items-center text-white">
           © 2025 ProgrUS Inc.
         </div>
       </div>
     </div>
   );
-} 
+}
