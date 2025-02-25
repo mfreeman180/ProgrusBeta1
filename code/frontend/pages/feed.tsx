@@ -25,7 +25,7 @@ export default function Feed() {
       router.push('/');
       return;
     }
-    fetch('http://localhost:5000/api/posts', {
+    fetch('http://localhost:3000/api/posts', {
       headers: {
         'Authorization': `Bearer ${token}`
       }

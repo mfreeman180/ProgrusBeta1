@@ -1,0 +1,2 @@
+echo $null > .sequelizerc
+notepad .sequelizerc

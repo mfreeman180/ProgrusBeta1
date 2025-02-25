@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "MFreePSQL",
+    "password": "PrivPSQL18",
+    "database": "progrus_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "test": {
+    "username": "MFreePSQL",
+    "password": "PrivPSQL18",
+    "database": "progrus_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "production": {
+    "username": "MFreePSQL",
+    "password": "PrivPSQL18",
+    "database": "progrus_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  }
+}

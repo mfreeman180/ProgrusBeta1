@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete Sign-Up</title>
+</head>
+<body>
+  <h1>Complete Your Sign-Up</h1>
+  <form action="/auth/finalize-signup" method="POST">
+    <label for="pin">Enter PIN from Verification:</label>
+    <input type="text" id="pin" name="pin" required><br><br>
+    <label>Select Username:</label><br>
+    <% usernameOptions.forEach(option => { %>
+      <input type="radio" name="username" value="<%= option %>" required>
+      <%= option %><br>
+    <% }); %><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">Finish</button>
+  </form>
+</body>
+</html>

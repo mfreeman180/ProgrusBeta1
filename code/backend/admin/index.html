@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <section class="content">
+      <div id="content"></div>
+    </section>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+  <script>
+    $.get('/admin/users', (data) => {
+      $('#content').html(`
+        <table class="table">
+          <thead><tr><th>ID</th><th>Username</th></tr></thead>
+          <tbody>${data.map(u => `<tr><td>${u.id}</td><td>${u.username}</td></tr>`).join('')}</tbody>
+        </table>
+      `);
+    });
+  </script>
+</body>
+</html>

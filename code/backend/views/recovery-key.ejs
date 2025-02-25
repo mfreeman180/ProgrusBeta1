@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recovery Key</title>
+</head>
+<body>
+  <h1>Your Recovery Key</h1>
+  <p>Save this key securely:</p>
+  <p><strong><%= recoveryKey %></strong></p>
+  <button onclick="navigator.clipboard.writeText('<%= recoveryKey %>')">Copy</button>
+</body>
+</html>
